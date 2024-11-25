@@ -53,7 +53,7 @@ To use the project, follow these steps:
 1.  Clone the repository:
 
     ```bash
-    git clone
+    git clone https://github.com/ChrisYangS/policy_analysis.git
     ```
 
 2.  Install the required packages:

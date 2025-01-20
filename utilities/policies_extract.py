@@ -140,8 +140,18 @@ def get_policy_details(policies_list: list) -> list:
     # empty list to store the scope of the policie_scope
     policy_contents = []
     for policy in policies_list:
-        page = requests.get(policy["url"])
-        soup = BeautifulSoup(page.content, "html.parser")
+        # page = requests.get(policy["url"])
+        try:
+            # open the policy local html file
+            with open(policy["url"], "r") as file:
+                page = file.read()
+                soup = BeautifulSoup(page, "html.parser")
+        except:
+            print(f"\nERROR: {policy['name']} file not found! URL is {policy['url']}\n")
+            logging.error(
+                f"\nERROR: {policy['name']} file not found! URL is {policy['url']}\n"
+            )
+            continue
 
         purpose = get_policy_purpose(soup, policy)["policies_purpose"]
         scope = get_policy_scope(soup, policy)["policies_scope"]

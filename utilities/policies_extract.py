@@ -61,13 +61,18 @@ def get_policy_scope(soup: BeautifulSoup, policy: dict) -> dict:
     )
     dict = {}
     if h2_location:
-        policy_content = h2_location.find_next("p")
         dict["name"] = policy["name"]
         dict["url"] = policy["url"]
-        if policy_content:
-            dict["policies_scope"] = policy_content.get_text()
-        else:
-            dict["policies_scope"] = "Organisational Scope not found"
+        try:
+            # get all p tags between the h2_location and the next h2 tag
+            paragraphs = []
+            for sibling in h2_location.find_next_siblings():
+                if sibling.name == "h2":
+                    break
+                paragraphs.append(sibling.getText())
+            dict["policies_scope"] = "\n".join(paragraphs)
+        except:
+            dict["policies_scope"] = policy_content.getText()
     else:
         dict["policies_scope"] = "Organisational scope not found"
         print(
@@ -85,18 +90,18 @@ def get_policy_purpose(soup: BeautifulSoup, policy: dict) -> dict:
     )
     dict = {}
     if h2_location:
-        policy_content = h2_location.find_next("p")
         dict["name"] = policy["name"]
         dict["url"] = policy["url"]
-        if policy_content:
-            try:
-                dict["policies_purpose"] = (
-                    f"{policy_content.get_text()} \n{policy_content.find_next('ol').get_text()}"
-                )
-            except:
-                dict["policies_purpose"] = policy_content.get_text()
-        else:
-            dict["policies_purpose"] = "Policy Purpose not found"
+        try:
+            # get all p tags between the h2_location and the next h2 tag
+            paragraphs = []
+            for sibling in h2_location.find_next_siblings():
+                if sibling.name == "h2":
+                    break
+                paragraphs.append(sibling.getText())
+            dict["policies_purpose"] = "\n".join(paragraphs)
+        except:
+            dict["policies_purpose"] = policy_content.getText()
     else:
         dict["policies_purpose"] = "Policy Purpose not found"
         print(
@@ -114,14 +119,13 @@ def get_policy_contents(soup: BeautifulSoup, policy: dict) -> dict:
     )
     dict = {}
     if h2_location:
-        policy_content = h2_location.find_next("ol", class_="list-with-headings")
         dict["name"] = policy["name"]
         dict["url"] = policy["url"]
         contents = []
         for sibling in h2_location.find_next_siblings():
             if sibling.name == "h2":
                 break
-            contents.append(sibling.get_text())
+            contents.append(sibling.getText())
         dict["policies_contents"] = "\n".join(contents)
     else:
         dict["policies_contents"] = "Policy Contents not found"
@@ -170,51 +174,3 @@ def get_policy_details(policies_list: list) -> list:
             processed / total_process * 100,
         )
     return policy_contents
-
-
-# guidelines_list = get_policies(policy_type="Guidelines")
-# plan_strategies_list = get_policies(policy_type="Plans & Strategies")
-# policies_list = get_policies(policy_type="Policies")
-# procedure_list = get_policies(policy_type="Procedures")
-# regulations_list = get_policies(policy_type="Regulations")
-# statues_list = get_policies(policy_type="Statutes")
-
-# guideline_contents = get_policy_details(guidelines_list)
-# plan_strategies_contents = get_policy_details(plan_strategies_list)
-# policies_contents = get_policy_details(policies_list)
-# procedure_contents = get_policy_details(procedure_list)
-# regulations_contents = get_policy_details(regulations_list)
-# statues_contents = get_policy_details(statues_list)
-
-# TODO: save in an file processor file
-# import pandas as pd
-# import openpyxl
-
-
-# def save_policies_to_excel(file_name: str, st_name: str, *lists):
-#     combined_list = []
-#     for lst in lists:
-#         combined_list.extend(lst)
-
-#     df = pd.DataFrame(combined_list)
-
-#     with pd.ExcelWriter(
-#         file_name,
-#         engine="openpyxl",
-#         mode="a",
-#     ) as writer:
-#         df.to_excel(
-#             writer,
-#             sheet_name=st_name,
-#             index=False,
-#             header=True,
-#             startrow=0,
-#             startcol=0,
-#             freeze_panes=(1, 0),
-#         )
-
-#     print(f"\nSUCCESS: {st_name} is saved to {file_name}")
-#     logging.info(f"\nSUCCESS: {st_name} is saved to {file_name}")
-
-
-# ----------------------------------ON MAIN ------------------------

@@ -1,6 +1,14 @@
 import logging
 import json
-import time
+import sys
+
+sys.path.insert(0, "./utilities/")
+from console_prompt import print_message_and_progressing_bar
+
+
+import requests
+from bs4 import BeautifulSoup
+
 
 # -------------------------------LOAD CONFIGURATION FILE------------------------------
 # Load the configuration file
@@ -14,14 +22,6 @@ ALL_POLICE_URL = config["ALL_POLICE_URL"]
 #     filename=f"./output/policy_data_load_{time.strftime("%Y%m%d%H%M%S",time.localtime())}.log",
 #     level=logging.INFO,
 # )
-import sys
-
-sys.path.insert(0, "./utilities/")
-from console_prompt import print_message_and_progressing_bar
-
-
-import requests
-from bs4 import BeautifulSoup
 
 
 # read the ALL_POLICE_URL and get the urls of all the policies
@@ -72,7 +72,7 @@ def get_policy_scope(soup: BeautifulSoup, policy: dict) -> dict:
                 paragraphs.append(sibling.getText())
             dict["policies_scope"] = "\n".join(paragraphs)
         except:
-            dict["policies_scope"] = policy_content.getText()
+            dict["policies_scope"] = policy.getText()
     else:
         dict["policies_scope"] = "Organisational scope not found"
         print(
@@ -101,7 +101,7 @@ def get_policy_purpose(soup: BeautifulSoup, policy: dict) -> dict:
                 paragraphs.append(sibling.getText())
             dict["policies_purpose"] = "\n".join(paragraphs)
         except:
-            dict["policies_purpose"] = policy_content.getText()
+            dict["policies_purpose"] = policy.getText()
     else:
         dict["policies_purpose"] = "Policy Purpose not found"
         print(

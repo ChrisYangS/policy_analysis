@@ -5,7 +5,6 @@ import sys
 sys.path.insert(0, "./utilities/")
 import keyboard
 import logging
-import openpyxl
 import os
 import time
 from utilities.policies_extract import get_policies, get_policy_details
@@ -16,7 +15,7 @@ from utilities.export_to_files import create_excel_output_file, create_json_outp
 if __name__ == "__main__":
     # Configure logging to save to a file
     logging.basicConfig(
-        filename=f"./output/policy_data_load_{time.strftime("%Y%m%d%H%M%S",time.localtime())}.log",
+        filename=f"./output/policy_data_load_{time.strftime('%Y%m%d%H%M%S', time.localtime())}.log",
         level=logging.INFO,
         format="%(asctime)s - %(message)s",
     )
@@ -187,11 +186,6 @@ if __name__ == "__main__":
             raise ValueError("Invalid user input")
 
     except Exception as e:
-        # try to remove the output file if it is created
-        try:
-            os.remove(file_name)
-        except:
-            pass
         print(f"\nCRITICAL FAILURE:{e}")
         logging.error(f"\nCRITICAL FAILURE: {e}")
         # stop this application

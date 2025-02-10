@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Emergency_Management_Plan",
+        "scope": "Organisational scope not found",
+        "content": "Policy Contents not found",
+        "q1_response": "Based on the provided JSON data, there is insufficient information to determine whether the Emergency Management Plan contains unnecessary content regarding cross-references to other policies. The scope and content do not provide enough context to identify such issues without comparison with additional records.",
+        "q2_response": "Based on the provided JSON data, there is insufficient information to determine whether the Emergency Management Plan contains necessary procedures or just policies. The limited details about its content prevent a conclusive analysis.",
+        "q3_response": "Based on the provided JSON data, there is insufficient information to determine whether the Emergency Management Plan contains inconsistencies or structural flaws. Specifically:",
+        "q4_response": "The analysis indicates several challenges in determining the redundancy or correctness of the Emergency Management Plan based on the provided JSON data:"
+    },
+    {
+        "name": "Equity_and_Diversity_Strategic_Framework_and_Action_Plan_2023_2030_Te_Rautaki_Ararau_T\u014dkeke",
+        "scope": "Organisational scope not found",
+        "content": "Policy Contents not found",
+        "q1_response": "Based on the provided information, it is not possible to determine which policies contain unnecessary content such as cross-references to other policies because there are no complete policy documents available. The scope and content fields for this record are incomplete or missing.",
+        "q2_response": "Based on the information provided, it is not possible to determine whether any of the listed policies contain procedures. The necessary details such as scope and content are incomplete or missing, making a thorough analysis impractical at this stage.",
+        "q3_response": "Based on the provided JSON data, which contains only one policy record with incomplete information (scope and content missing), it is not possible to identify any inconsistencies or structural flaws in the policies. The lack of detailed scope and content prevents a thorough evaluation of whether there are missing sections across other policies or irrelevant sections within this specific policy.",
+        "q4_response": "Based on the analysis of the provided JSON data and the subsequent reasoning, here is a structured summary of the findings:"
+    }
+]

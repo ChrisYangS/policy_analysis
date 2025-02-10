@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Emergency_Management_Plan",
+        "scope": "Organisational scope not found",
+        "content": "Policy Contents not found",
+        "q1_response": "Based on the provided data, there are no policies containing unnecessary content regarding cross-references.",
+        "q2_response": "Based on the provided data, none of the policies contain parts classified as \"Procedures\" instead of \"Policies.\" Therefore, the result is an empty list.",
+        "q3_response": "Based on the provided data, there is no policy that contains inconsistencies or structural flaws. All policies are missing sections and lack clarity in their structure.",
+        "q4_response": "Based on the provided JSON data for the policy document record:"
+    },
+    {
+        "name": "Equity_and_Diversity_Strategic_Framework_and_Action_Plan_2023_2030_Te_Rautaki_Ararau_T\u014dkeke",
+        "scope": "Organisational scope not found",
+        "content": "Policy Contents not found",
+        "q1_response": "Based on the provided JSON data, there are **no policies** that contain unnecessary content related to cross-references within their own documents. The policy record only provides organizational scope and content fields without indicating any internal cross-references.",
+        "q2_response": "Based on the analysis of the provided policy record:",
+        "q3_response": "I'm sorry, but I cannot access or analyze JSON data directly from my knowledge base. To provide a detailed analysis of your policy record, you will need to:",
+        "q4_response": "It seems like you have already provided the policy data in a minimal JSON format, and your request to improve or analyze it requires additional context or clarification."
+    }
+]

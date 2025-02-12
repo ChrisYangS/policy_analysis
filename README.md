@@ -16,16 +16,34 @@ into an Excel file.
 
 The project requires the following Python packages:
 
+    - keyboard
+    - requests
+    - bs4
+    - pandas
+    - ipykernel
+    - openai
+    - tiktoken
+
 -   `pandas==2.2.3`
 -   `openpyxl==3.1.5`
 -   `requests==2.32.3`
 -   `beautifulsoup4==4.12.2`
 -   `logging` (standard library)
+-   `keyboard==0.13.5`
+-   `ipykernel==6.29.5`
+-   `tiktoken==0.8.0`
+-   `openai==0.61.0`
 
 You can install these packages using the `requirements.txt` file:
 
     ```bash
     pip install -r requirements.txt
+    ```
+
+However it is recommended to install the packages from anaconda environment:
+
+    ```
+    conda env create -f policy_analysis.yml
     ```
 
 ## Structure
@@ -41,10 +59,20 @@ In the utilies folder, the project contains the following files:
 
 -   `console_prompt.py`: The script to user interface with the user, i.e.
     progressing complete percentage update
--   `export_to_excel.py`: The script to export the processed data to an Excel
-    file.
--   `policies_extractor.py`: The script to extract data from the policy
-    documents.
+-   `export_html.py`: Save scraped html files to local disk.
+-   `export_to_files.py`: The script to save the scraped data to an Excel or
+    JSON file.
+-   `policy_extract.py`: The script to scrape the policy documents from html
+    files and save to a python dictionary for further processing.
+-   `miscellaneous.py`: The script to other store miscellaneous functions.
+
+In the analysis folder, it contains following 2 juptyer notebooks and output
+data in JSON format:
+
+-   `call_llm.ipynb`: This file calls locally deployed language model to
+    generate the response for the given questions and save in JSON format.
+-   `llm_response_analysis.ipynb`: This randomly selects the response from the
+    generated JSON file and analyze the response.
 
 ## How to Use
 

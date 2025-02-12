@@ -1,8 +1,5 @@
 # ignore all html subfolder in output directory
 
 output/html/*
-
-#ignore play.py
 play.py
-ignore api.json
 api.json

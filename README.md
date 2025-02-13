@@ -36,15 +36,15 @@ The project requires the following Python packages:
 
 You can install these packages using the `requirements.txt` file:
 
-    ```bash
-    pip install -r requirements.txt
-    ```
+```bash
+pip install -r requirements.txt
+```
 
 However it is recommended to install the packages from anaconda environment:
 
-    ```
-    conda env create -f policy_analysis.yml
-    ```
+```
+conda env create -f policy-analysis.yml
+```
 
 ## Structure
 
@@ -86,19 +86,36 @@ To use the project, follow these steps:
 
 2.  Install the required packages:
 
+    Either by installing the packages from the `requirements.txt` file using
+    pip:
+
     ```bash
     pip install -r requirements.txt
     ```
 
-3.  Run the `main.py` script:
+    Alternatively, and it is recommended to install the packages from anaconda
+    environment:
+
+    ```
+    conda env create -f policy-analysis.yml
+    ```
+
+3.  Actiavate the anaconda environment if you have installed the packages from
+    anaconda environment:
+
+    ```
+    conda activate policy-analysis
+    ```
+
+4.  Run the `main.py` script once the packages are installed:
 
     ```bash
     python main.py
     ```
 
-4.  Wait for the script to process the data and save it to an Excel file.
+5.  Wait for the script to process the data and save it to an Excel file.
     -   All exported data will be saved in the
         `.\\output\otago_policies_%Y%m%d%H%M%S.xlsx` file.
     -   A log file will be saved in the
         `.\\output\policy_data_load_%Y%m%d%H%M%S.log` folder.
-5.  Check the `otago_policies.xlsx` file for the processed data.
+6.  Check the `otago_policies.xlsx` file for the processed data.

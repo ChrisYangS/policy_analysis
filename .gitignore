@@ -1,5 +1,4 @@
 # ignore all html subfolder in output directory
 
-output/html/*
 play.py
 api.json

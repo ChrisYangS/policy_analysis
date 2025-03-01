@@ -17,12 +17,6 @@ with open("config.json", "r") as config_file:
 # Access the ALL_POLICE_URL from the configuration
 ALL_POLICE_URL = config["ALL_POLICE_URL"]
 
-# Configure logging to save to a file
-# logging.basicConfig(
-#     filename=f"./output/policy_data_load_{time.strftime("%Y%m%d%H%M%S",time.localtime())}.log",
-#     level=logging.INFO,
-# )
-
 
 # read the ALL_POLICE_URL and get the urls of all the policies
 def get_policies(policy_type: str) -> dict:
